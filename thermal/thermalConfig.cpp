@@ -3074,6 +3074,127 @@ namespace thermal {
 		},
 	};
 
+	std::vector<std::string> cpu_sensors_cliffs = {
+		"cpu-0-0-0",
+		"cpu-0-1-0",
+		"cpu-0-2-0",
+		"cpu-1-0-0",
+		"cpu-1-1-0",
+		"cpu-1-2-0",
+		"cpu-1-3-0",
+		"cpu-2-0-0",
+	};
+
+	std::vector<struct target_therm_cfg> cliffs_common = {
+		{
+			TemperatureType::CPU,
+			cpu_sensors_cliffs,
+			"",
+			{
+			[SEVERE] = 95000,
+			[SHUTDOWN] = 115000,
+			},
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-0" },
+			"GPU0",
+			{
+			[SEVERE] = 95000,
+			[SHUTDOWN] = 115000,
+			},
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-1" },
+			"GPU1",
+			{
+			[SEVERE] = 95000,
+			[SHUTDOWN] = 115000,
+			},
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-2" },
+			"GPU2",
+			{
+			[SEVERE] = 95000,
+			[SHUTDOWN] = 115000,
+			},
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-3" },
+			"GPU3",
+			{
+			[SEVERE] = 95000,
+			[SHUTDOWN] = 115000,
+			},
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphvx-0" },
+			"nsp0",
+			{
+			[SEVERE] = 100000,
+			[SHUTDOWN] = 115000,
+			},
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphvx-1" },
+			"nsp1",
+			{
+			[SEVERE] = 100000,
+			[SHUTDOWN] = 115000,
+			},
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphmx-0" },
+			"nsp2",
+			{
+			[SEVERE] = 100000,
+			[SHUTDOWN] = 115000,
+			},
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphmx-1" },
+			"nsp3",
+			{
+			[SEVERE] = 100000,
+			[SHUTDOWN] = 115000,
+			},
+			true,
+		},
+	};
+
+	std::vector<struct target_therm_cfg>  cliffs_specific = {
+		{
+			TemperatureType::SKIN,
+			{ "sys-therm-4" },
+			"skin",
+			{
+			[LIGHT] = 36500,
+			[MODERATE] = 40000,
+			[SEVERE] = 60000,
+			[CRITICAL] = 65000,
+			[EMERGENCY] = 70000,
+			[SHUTDOWN] = 95000,
+			},
+			true,
+		},
+	};
+
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
 		msm_soc_map = {
 		{417, sensor_cfg_bengal}, // bengal
@@ -3126,6 +3247,8 @@ namespace thermal {
 		{601, kalama_common}, //Kalamap_sg
 		{557, pineapple_common}, //Pineapple
 		{577, pineapple_common}, //Pineapplep
+		{632, cliffs_common}, //cliffs
+		{614, cliffs_common}, //cliffs7
 		{618, sun_specific}, //Sun
 		{639, sun_specific}, //Sunp
 		{537, parrot_common}, //Netrani mobile
@@ -3178,6 +3301,8 @@ namespace thermal {
 		{601, kalama_specific}, //Kalamap_sg
 		{557, pineapple_specific}, //Pineapple
 		{577, pineapple_specific}, //Pineapplep
+		{632, cliffs_specific}, //cliffs
+		{614, cliffs_specific}, //cliffs7
 		{537, parrot_specific}, //Netrani mobile
 		{583, parrot_specific}, //Netrani mobile without modem
 		{613, parrot_specific}, //Netrani APQ
