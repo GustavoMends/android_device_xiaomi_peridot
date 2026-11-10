@@ -1,8 +1,8 @@
 cc_binary {
-	name: "android.hardware.thermal-service.qti",
+	name: "android.hardware.thermal-service-peridot.qti",
 	relative_install_path: "hw",
-	init_rc: ["android.hardware.thermal-service.qti.rc"],
-	vintf_fragments: ["android.hardware.thermal-service.qti.xml"],
+	init_rc: ["android.hardware.thermal-service-peridot.qti.rc"],
+	vintf_fragments: ["android.hardware.thermal-service-peridot.qti.xml"],
 	vendor: true,
 	shared_libs: [
 	"libbase",
@@ -35,7 +35,7 @@ cc_binary {
 }
 
 cc_fuzz {
-    name: "aidl_fuzzer_thermal",
+    name: "aidl_fuzzer_thermal_peridot",
     vendor: true,
 
     shared_libs: [
