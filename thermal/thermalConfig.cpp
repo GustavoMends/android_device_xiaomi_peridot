@@ -3181,7 +3181,7 @@ namespace thermal {
 	std::vector<struct target_therm_cfg>  cliffs_specific = {
 		{
 			TemperatureType::SKIN,
-			{ "sys-therm-4" },
+			{ "quiet_therm" },
 			"skin",
 			{
 			[LIGHT] = 48000,
