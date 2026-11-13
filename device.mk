@@ -43,6 +43,9 @@ PRODUCT_PACKAGES += \
     otapreopt_script
 
 PRODUCT_PACKAGES += \
+    e2fsck.vendor_ramdisk \
+    fsck.f2fs.vendor_ramdisk \
+    linker.vendor_ramdisk \
     snapuserd.recovery \
     snapuserd.vendor_ramdisk
 
